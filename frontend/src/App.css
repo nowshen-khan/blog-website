@@ -1,0 +1,15 @@
+/* .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.carousel img {
+    filter: brightness(0.85);
+} */
+
+.team-member-image {
+	width: 300px;
+	height: 300px;
+	overflow: hidden;
+}
