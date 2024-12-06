@@ -15,6 +15,7 @@ import AboutSection from "./components/AboutSection";
 import Register from "./pages/Register";
 import DashboardTeam from "./pages/DashboardTeam";
 import ContactMessage from "./pages/ContactMessage";
+import BlogDetails from "./components/BlogDetails";
 
 const Home = () => (
 	<>
@@ -42,6 +43,7 @@ const App = () => {
 				<Route path="/" element={<Home />} />
 				<Route path="/about" element={<AboutPage />} />
 				<Route path="/blog" element={<BlogPage />} />
+				<Route path="/blog/:id" element={<BlogDetails />} />
 				<Route path="/services" element={<ServicesPage />} />
 				<Route path="/contact" element={<ContactPage />} />
 				<Route path="/login" element={<Login />} />

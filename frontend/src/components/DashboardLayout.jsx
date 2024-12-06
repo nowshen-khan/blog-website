@@ -1,7 +1,7 @@
 import { Container, Nav } from "react-bootstrap";
 import { Link, Outlet } from "react-router-dom";
 
-const DashboardLayout = ({ props }) => {
+const DashboardLayout = () => {
 	return (
 		<div>
 			<Nav className="bg-dark p-3">

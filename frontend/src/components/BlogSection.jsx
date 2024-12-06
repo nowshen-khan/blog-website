@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const BlogSection = () => {
 	const [blogs, setBlogs] = useState([]);
@@ -46,7 +47,18 @@ const BlogSection = () => {
 										? `${blog.description.substring(0, 100)}...`
 										: blog.description}
 								</Card.Text>
-								<button className="btn btn-primary">Read More</button>
+								<Link to={`/blog/${blog._id}`}>
+									<button
+										style={{
+											background: "#007BFF",
+											color: "#fff",
+											padding: "10px",
+										}}
+										className="btn btn-primary"
+									>
+										Read More
+									</button>
+								</Link>
 							</div>
 						</div>
 					</div>

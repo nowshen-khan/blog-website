@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import DashboardLayout from "./DashboardLayout";
 
 const MessageCount = () => {
 	const [count, setCount] = useState({ seen: 0, unseen: 0 });
@@ -19,7 +18,7 @@ const MessageCount = () => {
 	}, []);
 
 	return (
-		<div className="message-count d-flex flex-row justify-between items-center">
+		<div className="d-flex flex-row">
 			<h5 className="mx-2">Message Status Count</h5>
 			<p className="mx-2">Seen: {count.seen}</p>
 			<p className="mx-2">Unseen: {count.unseen}</p>
