@@ -16,6 +16,7 @@ import Register from "./pages/Register";
 import DashboardTeam from "./pages/DashboardTeam";
 import ContactMessage from "./pages/ContactMessage";
 import BlogDetails from "./components/BlogDetails";
+import BlogPage from "./pages/BlogPage";
 
 const Home = () => (
 	<>
@@ -31,7 +32,7 @@ const AboutPage = () => (
 		<TeamSection />
 	</>
 );
-const BlogPage = () => <BlogSection />;
+
 const ServicesPage = () => <ServiceSection />;
 const ContactPage = () => <ContactForm />;
 

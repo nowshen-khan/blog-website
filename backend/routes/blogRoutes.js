@@ -8,6 +8,9 @@ router.post("/", createBlog);
 // Read all blogs
 router.get("/", getBlogs);
 
+// Read for home page blogs
+router.get("/home", getBlogs);
+
 // Read single blog
 router.get("/:id", getBlog);
 

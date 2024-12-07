@@ -13,16 +13,24 @@ const createBlog = async (req, res) => {
 }
 
 const getBlogs = async (req, res) => {
-  try {
-    const blogs = await Blog.find();
-    res.json(blogs);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
+  const limit = parseInt(req.query.limit) || 0; 
+    try {
+        let blogs;
+        if (limit > 0) {
+            blogs = await Blog.find().limit(limit).lean(); 
+        } else {
+            blogs = await Blog.find();
+        }
+        res.status(200).json(blogs);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching blogs', error });
+    }
 }
+
+
 const getBlog = async (req, res) => {
   try {
-    const blog = await Blog.findById(req.params.id); // MongoDB থেকে ব্লগ খুঁজে বের করা
+    const blog = await Blog.findById(req.params.id); 
     if (!blog) {
       return res.status(404).json({ message: 'Blog not found' });
     }

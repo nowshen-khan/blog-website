@@ -1,24 +1,21 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-
+import axios from "axios";
 import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const BlogSection = () => {
 	const [blogs, setBlogs] = useState([]);
-	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		fetch("/api/blogs?limit=6")
-			.then((response) => response.json())
-			.then((data) => setBlogs(data))
-			.catch((error) => console.error("Error fetching blogs:", error))
-			.finally(() => setLoading(false));
+		axios
+			.get("/api/blogs")
+			.then((response) => {
+				setBlogs(response.data);
+			})
+			.catch((error) => {
+				console.error("Error fetching team data:", error);
+			});
 	}, []);
-
-	if (loading) {
-		return <p className="container py-5 display-6">Loading...</p>;
-	}
-
 	return (
 		<div className="container py-5">
 			<h2 className="text-center mb-4">Latest Blogs</h2>
