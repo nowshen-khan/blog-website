@@ -18,7 +18,7 @@ connectDB();
 
 app.use(express.json());
 app.use(cors());
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: "" }));
 
 app.use("/api/auth", authRoutes);
 app.use("/api", authRoutes)
