@@ -11,10 +11,9 @@ const dashboardRoutes = require('./routes/dashboardRoutes');
 const router = express.Router();
 const messageRoutes = require('./routes/messageRoutes');
 const sendEmail = require('./utils/mailer');
-
-dotenv.config();
 const app = express();
 
+dotenv.config();
 connectDB();
 
 app.use(express.json());
