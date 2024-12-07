@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import { config } from "../config";
 import { Card } from "react-bootstrap";
 
 const BlogSection = () => {
@@ -8,7 +8,7 @@ const BlogSection = () => {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		fetch("/api/blogs?limit=6")
+		fetch(`${config.backendUrl}/api/blogs?limit=6`)
 			.then((response) => response.json())
 			.then((data) => setBlogs(data))
 			.catch((error) => console.error("Error fetching blogs:", error))

@@ -18,7 +18,6 @@ connectDB();
 
 app.use(express.json());
 app.use(cors());
-app.use(cors({ origin: "https://blog-website-frontend-wheat.vercel.app" }));
 
 app.use("/api/auth", authRoutes);
 app.use("/api", authRoutes)
