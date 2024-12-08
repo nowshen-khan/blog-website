@@ -1,4 +1,4 @@
 
 export const config = {
-  backendUrl: 'https://blog-website-backend-inky.vercel.app/',
+  backendUrl: 'https://backend-six-pied.vercel.app',
 };
