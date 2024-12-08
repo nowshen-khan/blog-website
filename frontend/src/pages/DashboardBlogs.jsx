@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Modal, Button, Form, Row, Col, Card } from "react-bootstrap";
+import { config } from "../config";
 
 const DashboardBlogs = () => {
 	const [blogs, setBlogs] = useState([]);
@@ -15,7 +16,7 @@ const DashboardBlogs = () => {
 	// Fetch all blogs
 	const fetchBlogs = async () => {
 		try {
-			const response = await axios.get("/api/blogs");
+			const response = await axios.get(`${config.backendUrl}/api/blogs`);
 			setBlogs(response.data);
 		} catch (error) {
 			console.error("Error fetching blogs:", error);
@@ -36,9 +37,12 @@ const DashboardBlogs = () => {
 	const handleSaveBlog = async () => {
 		try {
 			if (isEditing) {
-				await axios.put(`/api/blogs/${currentBlog._id}`, currentBlog);
+				await axios.put(
+					`${config.backendUrl}/api/blogs/${currentBlog._id}`,
+					currentBlog
+				);
 			} else {
-				await axios.post("/api/blogs", currentBlog);
+				await axios.post(`${config.backendUrl}/api/blogs`, currentBlog);
 			}
 			fetchBlogs();
 			handleCloseModal();
@@ -50,7 +54,7 @@ const DashboardBlogs = () => {
 	// Delete Blog
 	const handleDeleteBlog = async (id) => {
 		try {
-			await axios.delete(`/api/blogs/${id}`);
+			await axios.delete(`${config.backendUrl}/api/blogs/${id}`);
 			fetchBlogs();
 		} catch (error) {
 			console.error("Error deleting blog:", error);
