@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { config } from "../config";
 
 const BlogDetails = () => {
 	const { id } = useParams();
@@ -10,7 +11,9 @@ const BlogDetails = () => {
 	useEffect(() => {
 		const fetchBlog = async () => {
 			try {
-				const response = await axios.get(`/api/blogs/${id}`);
+				const response = await axios.get(
+					`${config.backendUrl}/api/blogs/${id}`
+				);
 				setBlog(response.data);
 			} catch (error) {
 				console.error("Error fetching blog data:", error);
