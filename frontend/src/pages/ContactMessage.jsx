@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Button, Card, Container, Row, Col } from "react-bootstrap";
 import MessageCount from "../components/MessageCount";
+import { config } from "../config";
 
 const ContactMessage = () => {
 	const [messages, setMessages] = useState([]);
@@ -9,7 +10,7 @@ const ContactMessage = () => {
 	// Fetch Team
 	const fetchMessages = async () => {
 		try {
-			const response = await axios.get("/api/messages");
+			const response = await axios.get(`${config.backendUrl}/api/messages`);
 			//console.log("Fetched messages:", response.data);
 			setMessages(response.data);
 		} catch (error) {
@@ -26,7 +27,10 @@ const ContactMessage = () => {
 
 	const markAsSeen = async (id) => {
 		try {
-			const response = await axios.put(`/api/messages/${id}`, { seen: true });
+			const response = await axios.put(
+				`${config.backendUrl}/api/messages/${id}`,
+				{ seen: true }
+			);
 			console.log("Message marked as seen:", response.data);
 			fetchMessages(); // Reload messages after updating
 		} catch (error) {
@@ -37,7 +41,7 @@ const ContactMessage = () => {
 	// Delete Messages
 	const handleDeleteMessage = async (id) => {
 		try {
-			await axios.delete(`/api/messages/${id}`);
+			await axios.delete(`${config.backendUrl}/api/messages/${id}`);
 			fetchMessages();
 		} catch (error) {
 			console.error("Error deleting message:", error);
