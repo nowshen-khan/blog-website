@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { config } from "../config";
 
 const BlogSection = () => {
 	const [blogs, setBlogs] = useState([]);
 
 	useEffect(() => {
 		axios
-			.get("/api/blogs")
+			.get(`${config.backendUrl}/api/blogs`)
 			.then((response) => {
 				setBlogs(response.data);
 			})
