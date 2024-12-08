@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { config } from "../config";
 
 const ContactForm = () => {
 	const [formData, setFormData] = useState({
@@ -14,7 +15,7 @@ const ContactForm = () => {
 		e.preventDefault();
 		try {
 			const response = await axios.post(
-				"http://localhost:5000/send-email",
+				`${config.API_URL}/send-email`,
 				formData
 			);
 			alert("Message sent successfully!");

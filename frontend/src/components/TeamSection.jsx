@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import "./TeamSection.css";
 import axios from "axios";
+import { config } from "../config";
 
 const TeamSection = () => {
 	const [team, setTeam] = useState([]);
 
 	useEffect(() => {
 		axios
-			.get("/api/team")
+			.get(`${config.backendUrl}/api/team`)
 			.then((response) => {
 				setTeam(response.data);
 			})
