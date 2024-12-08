@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://blog-website-backend-inky.vercel.app/', 
+        target: 'https://backend-six-pied.vercel.app', 
         changeOrigin: true,
         secure: false,
       },
