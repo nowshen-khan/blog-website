@@ -68,7 +68,7 @@ blog-website/
 ├── backend/        # Backend API
 │   ├── models/     # Mongoose schemas
 │   ├── routes/     # Express routes
-│   ├── controllers/# Business logic
+│   ├── controllers/ # Project logic
 │
 └── README.md       # Project documentation
 
