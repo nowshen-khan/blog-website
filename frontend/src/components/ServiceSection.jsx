@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
+import { config } from "../config";
 
 const ServiceSection = () => {
 	const [services, setServices] = useState([]);
 
 	useEffect(() => {
 		axios
-			.get("/api/services")
+			.get(`${config.backendUrl}/api/services`)
 			.then((response) => {
 				setServices(response.data);
 			})
