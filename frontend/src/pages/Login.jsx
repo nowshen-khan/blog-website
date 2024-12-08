@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import { config } from "../config";
 
 const Login = () => {
 	const [formData, setFormData] = useState({
@@ -26,7 +27,7 @@ const Login = () => {
 
 		try {
 			const response = await axios.post(
-				"/api/login", // Replace with your login API endpoint
+				`${config.backendUrl}/api/login`, // Replace with your login API endpoint
 				formData
 			);
 
@@ -34,7 +35,10 @@ const Login = () => {
 				//console.log("JWT Token:", response.data.token);
 				localStorage.setItem("token", response.data.token); // Store JWT token in localStorage
 				setStatus("Login successful! Redirecting...");
-				setTimeout(() => navigate("/dashboard/blogs"), 2000); // Redirect to dashboard
+				setTimeout(
+					() => navigate(`${config.backendUrl}/dashboard/blogs`),
+					2000
+				); // Redirect to dashboard
 			}
 		} catch (error) {
 			setStatus(
