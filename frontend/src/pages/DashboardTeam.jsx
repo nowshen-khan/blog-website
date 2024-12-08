@@ -9,6 +9,7 @@ import {
 	Row,
 	Col,
 } from "react-bootstrap";
+import { config } from "../config";
 
 const DashboardTeam = () => {
 	const [teams, setTeams] = useState([]);
@@ -24,7 +25,7 @@ const DashboardTeam = () => {
 	// Fetch Team
 	const fetchTeams = async () => {
 		try {
-			const response = await axios.get("/api/team");
+			const response = await axios.get(`${config.backendUrl}/api/team`);
 			setTeams(response.data);
 		} catch (error) {
 			console.error("Error fetching Team:", error);
@@ -49,9 +50,12 @@ const DashboardTeam = () => {
 	const handleSaveTeam = async () => {
 		try {
 			if (isEditing) {
-				await axios.put(`/api/team/${currentTeam._id}`, currentTeam);
+				await axios.put(
+					`${config.backendUrl}/api/team/${currentTeam._id}`,
+					currentTeam
+				);
 			} else {
-				await axios.post("/api/team", currentTeam);
+				await axios.post(`${config.backendUrl}/api/team`, currentTeam);
 			}
 			fetchTeams();
 			handleCloseModal();
@@ -63,7 +67,7 @@ const DashboardTeam = () => {
 	// Delete Member
 	const handleDeleteTeam = async (id) => {
 		try {
-			await axios.delete(`/api/team/${id}`);
+			await axios.delete(`${config.backendUrl}/api/team/${id}`);
 			fetchTeams();
 		} catch (error) {
 			console.error("Error deleting team:", error);

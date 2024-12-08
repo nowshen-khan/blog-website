@@ -9,6 +9,7 @@ import {
 	Row,
 	Col,
 } from "react-bootstrap";
+import { config } from "../config";
 
 const DashboardServices = () => {
 	const [services, setServices] = useState([]);
@@ -23,7 +24,7 @@ const DashboardServices = () => {
 	// Fetch Services
 	const fetchServices = async () => {
 		try {
-			const response = await axios.get("/api/services");
+			const response = await axios.get(`${config.backendUrl}/api/services`);
 			setServices(response.data);
 		} catch (error) {
 			console.error("Error fetching services:", error);
@@ -48,9 +49,12 @@ const DashboardServices = () => {
 	const handleSaveService = async () => {
 		try {
 			if (isEditing) {
-				await axios.put(`/api/services/${currentService._id}`, currentService);
+				await axios.put(
+					`${config.backendUrl}/api/services/${currentService._id}`,
+					currentService
+				);
 			} else {
-				await axios.post("/api/services", currentService);
+				await axios.post(`${config.backendUrl}/api/services`, currentService);
 			}
 			fetchServices();
 			handleCloseModal();
@@ -62,7 +66,7 @@ const DashboardServices = () => {
 	// Delete Service
 	const handleDeleteService = async (id) => {
 		try {
-			await axios.delete(`/api/services/${id}`);
+			await axios.delete(`${config.backendUrl}/api/services/${id}`);
 			fetchServices();
 		} catch (error) {
 			console.error("Error deleting service:", error);

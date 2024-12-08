@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { config } from "../config";
 
 const Register = () => {
 	const [formData, setFormData] = useState({
@@ -26,13 +27,13 @@ const Register = () => {
 		setStatus("");
 		try {
 			const response = await axios.post(
-				"/api/register", // Update the endpoint as needed
+				`${config.backendUrl}/api/register`,
 				formData
 			);
 
 			if (response.status === 201) {
 				setStatus("Registration successful! Redirecting to login...");
-				setTimeout(() => navigate("/login"), 2000); // Redirect to login
+				setTimeout(() => navigate("/login"), 2000);
 			}
 		} catch (error) {
 			setStatus("Registration failed. " + error.response?.data?.message);

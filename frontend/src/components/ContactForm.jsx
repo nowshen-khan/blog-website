@@ -15,7 +15,7 @@ const ContactForm = () => {
 		e.preventDefault();
 		try {
 			const response = await axios.post(
-				`${config.API_URL}/send-email`,
+				`${config.backendUrl}/send-email`,
 				formData
 			);
 			alert("Message sent successfully!");
