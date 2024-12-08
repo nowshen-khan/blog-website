@@ -1,11 +1,11 @@
 # Project Name - Blog Management System with Dashboard
 
-[Full Stack code](https://github.com/nowshen-khan/blog-website)
-[Only backend code](https://github.com/nowshen-khan/backend)
-[Only frontend code](https://github.com/nowshen-khan/frontend)
+[Full Stack code](https://github.com/nowshen-khan/blog-website)  
+[Only backend code](https://github.com/nowshen-khan/backend)  
+[Only frontend code](https://github.com/nowshen-khan/frontend)  
 
-[Frontend Hosting](https://blog-website-frontend-wheat.vercel.app)
-[Backend Hosting](https://backend-six-pied.vercel.app)
+[Frontend Hosting](https://blog-website-frontend-wheat.vercel.app)  
+[Backend Hosting](https://backend-six-pied.vercel.app)  
 
 
 A simple blog management system built with **React**, **Node.js**, **Express**, and **MongoDB** to create, view, and manage blogs effectively.
