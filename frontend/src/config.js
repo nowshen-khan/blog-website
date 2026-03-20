@@ -1,4 +1,3 @@
-
 export const config = {
-  backendUrl: 'https://backend-six-pied.vercel.app',
+	backendUrl: "http://localhost:5000", // 'https://backend-six-pied.vercel.app',
 };
